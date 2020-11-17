@@ -476,7 +476,6 @@ class _HeaderState extends State<Header> {
                       children: [
                         Text(
                           'Write Review',
-                          style: TextStyle(),
                         ),
                       ],
                     ),
@@ -485,6 +484,7 @@ class _HeaderState extends State<Header> {
                         Container(
                           width: MediaQuery.of(context).size.width / 1.1,
                           child: TextFormField(
+                            maxLength: 200,
                             decoration: InputDecoration(
                                 hintText: 'Write your review here...'),
                           ),

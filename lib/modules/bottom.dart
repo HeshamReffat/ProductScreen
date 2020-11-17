@@ -1,31 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:product_screen/models/users.dart';
 
 class Bottom extends StatelessWidget {
+  List<User> data = [
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+    User(
+      image: ExactAssetImage('assets/images/man.jpg'),
+      name: 'Hesham Reffat',
+      review:
+          'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        height: 300,
-        color: Colors.white,
-        width: double.infinity,
-        child: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, i) {
-              return Container(
-                height: 225,
-                width: 100,
-                child: Column(
-                  children: [
-                    reviews(),
-                  ],
-                ),
-              );
-            }),
-      ),
+    return Container(
+      height: 300,
+      color: Colors.white,
+      width: double.infinity,
+      child: ListView.builder(
+          itemCount: data.length,
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, i) {
+            return Container(
+              height: 225,
+              width: 100,
+              child: Column(
+                children: [
+                  reviews(data[i]),
+                ],
+              ),
+            );
+          }),
     );
   }
 
-  Widget reviews() {
+  Widget reviews(User userData) {
     return Container(
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0),
@@ -73,18 +136,23 @@ class Bottom extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: new BoxDecoration(
-                      // borderRadius: BorderRadius.circular(50),
-                      image: new DecorationImage(
-                        image: NetworkImage(
-                            'https://pbs.twimg.com/profile_images/612308671914053633/Eyq3ILil_400x400.png'),
-                        fit: BoxFit.fill,
-                      ),
-                      shape: BoxShape.circle),
-                ),
+                CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: userData.image),
+                // Container(
+                //   width: 50,
+                //   height: 50,
+                //   decoration: new BoxDecoration(
+                //       // borderRadius: BorderRadius.circular(50),
+                //       image: new DecorationImage(
+                //         image: NetworkImage(
+                //           'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg',
+                //         ),
+                //         fit: BoxFit.fill,
+                //       ),
+                //       shape: BoxShape.circle),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
@@ -92,7 +160,7 @@ class Bottom extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'Hesham Reffat',
+                            userData.name,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
@@ -142,10 +210,13 @@ class Bottom extends StatelessWidget {
                                 thickness: 1,
                                 height: 1,
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Text(
-                                'Focus and remember we design the best WordPress News and Magazines themes. it\'s the one closest to you than want to see you fail.',
-                                style: TextStyle(fontSize: 16, color: Colors.black54),
+                                userData.review,
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.black54),
                               ),
                             ],
                           ),
